@@ -28,14 +28,6 @@ Partial Class frmTelefonos
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTelefonos))
-        gbTelefonos = New GroupBox()
-        dgvTelefonos = New DataGridView()
-        gbDatoTel = New GroupBox()
-        Label1 = New Label()
-        txtAgrTel = New TextBox()
-        btnAgrMod = New Button()
-        btnEliRes = New Button()
-        btnCancelar = New Button()
         ep = New ErrorProvider(components)
         pnlMnuTool = New Panel()
         tsslNomUsu = New Label()
@@ -44,159 +36,27 @@ Partial Class frmTelefonos
         btnExit = New Button()
         btnMnuDesp = New Button()
         Timer1 = New Timer(components)
-        gbTelefonos.SuspendLayout()
-        CType(dgvTelefonos, ComponentModel.ISupportInitialize).BeginInit()
-        gbDatoTel.SuspendLayout()
+        Panel1 = New Panel()
+        btnCancelar = New Button()
+        btnEliRes = New Button()
+        btnAgrMod = New Button()
+        gbDatoTel = New GroupBox()
+        Label1 = New Label()
+        txtAgrTel = New TextBox()
+        gbTelefonos = New GroupBox()
+        dgvTelefonos = New DataGridView()
         CType(ep, ComponentModel.ISupportInitialize).BeginInit()
         pnlMnuTool.SuspendLayout()
+        Panel1.SuspendLayout()
+        gbDatoTel.SuspendLayout()
+        gbTelefonos.SuspendLayout()
+        CType(dgvTelefonos, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' gbTelefonos
-        ' 
-        gbTelefonos.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        gbTelefonos.Controls.Add(dgvTelefonos)
-        gbTelefonos.Location = New Point(12, 108)
-        gbTelefonos.Name = "gbTelefonos"
-        gbTelefonos.Size = New Size(780, 397)
-        gbTelefonos.TabIndex = 7
-        gbTelefonos.TabStop = False
-        ' 
-        ' dgvTelefonos
-        ' 
-        dgvTelefonos.AllowUserToAddRows = False
-        dgvTelefonos.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle1.ForeColor = Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = Color.SteelBlue
-        dgvTelefonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        dgvTelefonos.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgvTelefonos.BackgroundColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(200), CByte(219), CByte(234))
-        DataGridViewCellStyle2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        dgvTelefonos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dgvTelefonos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(200), CByte(219), CByte(234))
-        DataGridViewCellStyle3.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle3.ForeColor = Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue
-        DataGridViewCellStyle3.SelectionForeColor = Color.White
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
-        dgvTelefonos.DefaultCellStyle = DataGridViewCellStyle3
-        dgvTelefonos.Location = New Point(6, 13)
-        dgvTelefonos.Name = "dgvTelefonos"
-        dgvTelefonos.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = SystemColors.Control
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        DataGridViewCellStyle4.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        dgvTelefonos.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        dgvTelefonos.RowHeadersVisible = False
-        dgvTelefonos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvTelefonos.Size = New Size(768, 378)
-        dgvTelefonos.TabIndex = 16
-        ' 
-        ' gbDatoTel
-        ' 
-        gbDatoTel.Controls.Add(Label1)
-        gbDatoTel.Controls.Add(txtAgrTel)
-        gbDatoTel.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        gbDatoTel.ForeColor = Color.SteelBlue
-        gbDatoTel.Location = New Point(12, 53)
-        gbDatoTel.Name = "gbDatoTel"
-        gbDatoTel.Size = New Size(399, 62)
-        gbDatoTel.TabIndex = 15
-        gbDatoTel.TabStop = False
-        gbDatoTel.Text = "Datos Cliente"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.Black
-        Label1.Location = New Point(6, 38)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(61, 16)
-        Label1.TabIndex = 32
-        Label1.Text = "Teléfono"
-        ' 
-        ' txtAgrTel
-        ' 
-        txtAgrTel.BackColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
-        txtAgrTel.Enabled = False
-        txtAgrTel.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtAgrTel.Location = New Point(74, 35)
-        txtAgrTel.MaxLength = 50
-        txtAgrTel.Name = "txtAgrTel"
-        txtAgrTel.Size = New Size(319, 21)
-        txtAgrTel.TabIndex = 30
-        ' 
-        ' btnAgrMod
-        ' 
-        btnAgrMod.BackColor = Color.SteelBlue
-        btnAgrMod.FlatAppearance.BorderColor = Color.SlateGray
-        btnAgrMod.FlatAppearance.MouseDownBackColor = Color.SteelBlue
-        btnAgrMod.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
-        btnAgrMod.FlatStyle = FlatStyle.Flat
-        btnAgrMod.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnAgrMod.ForeColor = Color.White
-        btnAgrMod.Image = My.Resources.Resources.icons8_más_24
-        btnAgrMod.ImageAlign = ContentAlignment.MiddleLeft
-        btnAgrMod.Location = New Point(417, 70)
-        btnAgrMod.Name = "btnAgrMod"
-        btnAgrMod.Size = New Size(121, 31)
-        btnAgrMod.TabIndex = 16
-        btnAgrMod.Text = "    Agregar"
-        btnAgrMod.UseVisualStyleBackColor = False
-        ' 
-        ' btnEliRes
-        ' 
-        btnEliRes.BackColor = Color.SteelBlue
-        btnEliRes.FlatAppearance.BorderColor = Color.SlateGray
-        btnEliRes.FlatAppearance.MouseDownBackColor = Color.SteelBlue
-        btnEliRes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
-        btnEliRes.FlatStyle = FlatStyle.Flat
-        btnEliRes.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnEliRes.ForeColor = Color.White
-        btnEliRes.Image = My.Resources.Resources.icons8_menos_25
-        btnEliRes.ImageAlign = ContentAlignment.MiddleLeft
-        btnEliRes.Location = New Point(544, 70)
-        btnEliRes.Name = "btnEliRes"
-        btnEliRes.Size = New Size(121, 31)
-        btnEliRes.TabIndex = 17
-        btnEliRes.Text = "    Eliminar"
-        btnEliRes.UseVisualStyleBackColor = False
-        ' 
-        ' btnCancelar
-        ' 
-        btnCancelar.BackColor = Color.Firebrick
-        btnCancelar.FlatAppearance.BorderColor = Color.Maroon
-        btnCancelar.FlatAppearance.MouseDownBackColor = Color.Firebrick
-        btnCancelar.FlatAppearance.MouseOverBackColor = Color.DarkRed
-        btnCancelar.FlatStyle = FlatStyle.Flat
-        btnCancelar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnCancelar.ForeColor = Color.WhiteSmoke
-        btnCancelar.Image = My.Resources.Resources.icons8_cancelar_25
-        btnCancelar.ImageAlign = ContentAlignment.MiddleLeft
-        btnCancelar.Location = New Point(671, 70)
-        btnCancelar.Name = "btnCancelar"
-        btnCancelar.Size = New Size(121, 31)
-        btnCancelar.TabIndex = 18
-        btnCancelar.Text = "    Cancelar"
-        btnCancelar.UseVisualStyleBackColor = False
         ' 
         ' ep
         ' 
         ep.ContainerControl = Me
+        ep.Icon = CType(resources.GetObject("ep.Icon"), Icon)
         ' 
         ' pnlMnuTool
         ' 
@@ -276,38 +136,186 @@ Partial Class frmTelefonos
         btnMnuDesp.TabIndex = 0
         btnMnuDesp.UseVisualStyleBackColor = False
         ' 
+        ' Panel1
+        ' 
+        Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel1.BackColor = Color.Azure
+        Panel1.Controls.Add(btnCancelar)
+        Panel1.Controls.Add(btnEliRes)
+        Panel1.Controls.Add(btnAgrMod)
+        Panel1.Controls.Add(gbDatoTel)
+        Panel1.Controls.Add(gbTelefonos)
+        Panel1.Location = New Point(4, 34)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(797, 480)
+        Panel1.TabIndex = 21
+        ' 
+        ' btnCancelar
+        ' 
+        btnCancelar.BackColor = Color.Firebrick
+        btnCancelar.FlatAppearance.BorderColor = Color.Maroon
+        btnCancelar.FlatAppearance.MouseDownBackColor = Color.Firebrick
+        btnCancelar.FlatAppearance.MouseOverBackColor = Color.DarkRed
+        btnCancelar.FlatStyle = FlatStyle.Flat
+        btnCancelar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnCancelar.ForeColor = Color.WhiteSmoke
+        btnCancelar.Image = My.Resources.Resources.icons8_cancelar_25
+        btnCancelar.ImageAlign = ContentAlignment.MiddleLeft
+        btnCancelar.Location = New Point(656, 33)
+        btnCancelar.Name = "btnCancelar"
+        btnCancelar.Size = New Size(121, 31)
+        btnCancelar.TabIndex = 33
+        btnCancelar.Text = "    Cancelar"
+        btnCancelar.UseVisualStyleBackColor = False
+        ' 
+        ' btnEliRes
+        ' 
+        btnEliRes.BackColor = Color.SteelBlue
+        btnEliRes.FlatAppearance.BorderColor = Color.SlateGray
+        btnEliRes.FlatAppearance.MouseDownBackColor = Color.SteelBlue
+        btnEliRes.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
+        btnEliRes.FlatStyle = FlatStyle.Flat
+        btnEliRes.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnEliRes.ForeColor = Color.White
+        btnEliRes.Image = My.Resources.Resources.icons8_menos_25
+        btnEliRes.ImageAlign = ContentAlignment.MiddleLeft
+        btnEliRes.Location = New Point(529, 33)
+        btnEliRes.Name = "btnEliRes"
+        btnEliRes.Size = New Size(121, 31)
+        btnEliRes.TabIndex = 32
+        btnEliRes.Text = "    Eliminar"
+        btnEliRes.UseVisualStyleBackColor = False
+        ' 
+        ' btnAgrMod
+        ' 
+        btnAgrMod.BackColor = Color.SteelBlue
+        btnAgrMod.FlatAppearance.BorderColor = Color.SlateGray
+        btnAgrMod.FlatAppearance.MouseDownBackColor = Color.SteelBlue
+        btnAgrMod.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
+        btnAgrMod.FlatStyle = FlatStyle.Flat
+        btnAgrMod.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAgrMod.ForeColor = Color.White
+        btnAgrMod.Image = My.Resources.Resources.icons8_más_24
+        btnAgrMod.ImageAlign = ContentAlignment.MiddleLeft
+        btnAgrMod.Location = New Point(402, 33)
+        btnAgrMod.Name = "btnAgrMod"
+        btnAgrMod.Size = New Size(121, 31)
+        btnAgrMod.TabIndex = 31
+        btnAgrMod.Text = "    Agregar"
+        btnAgrMod.UseVisualStyleBackColor = False
+        ' 
+        ' gbDatoTel
+        ' 
+        gbDatoTel.Controls.Add(Label1)
+        gbDatoTel.Controls.Add(txtAgrTel)
+        gbDatoTel.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        gbDatoTel.ForeColor = Color.SteelBlue
+        gbDatoTel.Location = New Point(3, 8)
+        gbDatoTel.Name = "gbDatoTel"
+        gbDatoTel.Size = New Size(393, 62)
+        gbDatoTel.TabIndex = 30
+        gbDatoTel.TabStop = False
+        gbDatoTel.Text = "Datos Cliente"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.Black
+        Label1.Location = New Point(6, 38)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(61, 16)
+        Label1.TabIndex = 32
+        Label1.Text = "Teléfono"
+        ' 
+        ' txtAgrTel
+        ' 
+        txtAgrTel.BackColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
+        txtAgrTel.Enabled = False
+        txtAgrTel.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtAgrTel.Location = New Point(74, 35)
+        txtAgrTel.MaxLength = 50
+        txtAgrTel.Name = "txtAgrTel"
+        txtAgrTel.Size = New Size(291, 21)
+        txtAgrTel.TabIndex = 30
+        txtAgrTel.Tag = "Teléfono"
+        ' 
+        ' gbTelefonos
+        ' 
+        gbTelefonos.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        gbTelefonos.Controls.Add(dgvTelefonos)
+        gbTelefonos.Location = New Point(3, 63)
+        gbTelefonos.Name = "gbTelefonos"
+        gbTelefonos.Size = New Size(791, 408)
+        gbTelefonos.TabIndex = 29
+        gbTelefonos.TabStop = False
+        ' 
+        ' dgvTelefonos
+        ' 
+        dgvTelefonos.AllowUserToAddRows = False
+        dgvTelefonos.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = Color.SteelBlue
+        dgvTelefonos.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvTelefonos.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        dgvTelefonos.BackgroundColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(200), CByte(219), CByte(234))
+        DataGridViewCellStyle2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvTelefonos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvTelefonos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(200), CByte(219), CByte(234))
+        DataGridViewCellStyle3.Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue
+        DataGridViewCellStyle3.SelectionForeColor = Color.White
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvTelefonos.DefaultCellStyle = DataGridViewCellStyle3
+        dgvTelefonos.Location = New Point(6, 13)
+        dgvTelefonos.Name = "dgvTelefonos"
+        dgvTelefonos.ReadOnly = True
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = SystemColors.Control
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle4.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        dgvTelefonos.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        dgvTelefonos.RowHeadersVisible = False
+        dgvTelefonos.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgvTelefonos.Size = New Size(779, 389)
+        dgvTelefonos.TabIndex = 16
+        ' 
         ' frmTelefonos
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.Azure
+        BackColor = Color.SteelBlue
         ClientSize = New Size(804, 517)
+        Controls.Add(Panel1)
         Controls.Add(pnlMnuTool)
-        Controls.Add(btnCancelar)
-        Controls.Add(btnEliRes)
-        Controls.Add(btnAgrMod)
-        Controls.Add(gbDatoTel)
-        Controls.Add(gbTelefonos)
         FormBorderStyle = FormBorderStyle.None
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "frmTelefonos"
         Text = "Teléfonos de Clientes"
-        gbTelefonos.ResumeLayout(False)
-        CType(dgvTelefonos, ComponentModel.ISupportInitialize).EndInit()
-        gbDatoTel.ResumeLayout(False)
-        gbDatoTel.PerformLayout()
         CType(ep, ComponentModel.ISupportInitialize).EndInit()
         pnlMnuTool.ResumeLayout(False)
         pnlMnuTool.PerformLayout()
+        Panel1.ResumeLayout(False)
+        gbDatoTel.ResumeLayout(False)
+        gbDatoTel.PerformLayout()
+        gbTelefonos.ResumeLayout(False)
+        CType(dgvTelefonos, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
-    Friend WithEvents gbTelefonos As GroupBox
-    Friend WithEvents gbDatoTel As GroupBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtAgrTel As TextBox
-    Friend WithEvents btnAgrMod As Button
-    Friend WithEvents btnEliRes As Button
-    Friend WithEvents btnCancelar As Button
     Friend WithEvents ep As ErrorProvider
     Friend WithEvents pnlMnuTool As Panel
     Friend WithEvents tsslNomUsu As Label
@@ -315,6 +323,14 @@ Partial Class frmTelefonos
     Friend WithEvents btnMiniMax As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents btnMnuDesp As Button
-    Friend WithEvents dgvTelefonos As DataGridView
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnEliRes As Button
+    Friend WithEvents btnAgrMod As Button
+    Friend WithEvents gbDatoTel As GroupBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents gbTelefonos As GroupBox
+    Friend WithEvents dgvTelefonos As DataGridView
+    Friend WithEvents txtAgrTel As TextBox
 End Class

@@ -12,6 +12,7 @@ Public Class frmEmp
     Dim EmpleadosSP As New clsEmp
     Dim ClientesSP As New clsCli
     Dim EmpleadosDatos As New eEmp
+    Dim UsuarioDatos As New eUsu
     Dim bandera As Boolean
 #End Region
 #Region "Funciones"
@@ -19,7 +20,7 @@ Public Class frmEmp
     Private Sub EstablecerOrdenColumnasAct()
         If dgvEmpleados IsNot Nothing AndAlso dgvEmpleados.Columns.Count > 0 Then
             ' Definir el orden deseado de las columnas
-            Dim ordenColumnas As New List(Of String) From {"Número de empleado", "DNI", "Apellido", "Nombre", "País", "Domicilio", "Teléfono", "Correo", "Usuario", "Fecha de creación"}
+            Dim ordenColumnas As New List(Of String) From {"Número de empleado", "DNI", "Apellido", "Nombre", "País", "Domicilio", "Teléfono", "Correo", "Usuario", "Estado del Usuario", "Fecha de creación"}
 
             ' Verificar si el DataGridView contiene las columnas antes de intentar establecer su orden
             For Each nombreColumna As String In ordenColumnas
@@ -102,6 +103,9 @@ Public Class frmEmp
                 If dgvEmpleados.Columns.Contains("Usuario") Then
                     dgvEmpleados.Columns("Usuario").Visible = True
                 End If
+                If dgvEmpleados.Columns.Contains("Estado del Usuario") Then
+                    dgvEmpleados.Columns("Estado del Usuario").Visible = True
+                End If
             End If
 
         Else
@@ -109,6 +113,9 @@ Public Class frmEmp
             If dgvEmpleados IsNot Nothing AndAlso dgvEmpleados.Columns.Count > 0 Then
                 If dgvEmpleados.Columns.Contains("Usuario") Then
                     dgvEmpleados.Columns("Usuario").Visible = False
+                End If
+                If dgvEmpleados.Columns.Contains("Estado del Usuario") Then
+                    dgvEmpleados.Columns("Estado del Usuario").Visible = False
                 End If
             End If
 
@@ -153,7 +160,7 @@ Public Class frmEmp
         'Determinar()
     End Sub
 
-    Private Sub HabilitarNo()
+    Public Sub HabilitarNo()
         ep.Clear()
         txtDNI.Focus()
         btnResEli.Enabled = False
@@ -204,12 +211,18 @@ Public Class frmEmp
                     If dgvEmpleados.Columns.Contains("Usuario") Then
                         dgvEmpleados.Columns("Usuario").Visible = True
                     End If
+                    If dgvEmpleados.Columns.Contains("Estado del Usuario") Then
+                        dgvEmpleados.Columns("Estado del Usuario").Visible = True
+                    End If
                 End If
             Else
                         Me.dgvEmpleados.DataSource = EmpleadosSP.BuscarEmpleadoBaja(txtBusEmp.Text)
                 If dgvEmpleados IsNot Nothing AndAlso dgvEmpleados.Columns.Count > 0 Then
                     If dgvEmpleados.Columns.Contains("Usuario") Then
                         dgvEmpleados.Columns("Usuario").Visible = False
+                    End If
+                    If dgvEmpleados.Columns.Contains("Estado del Usuario") Then
+                        dgvEmpleados.Columns("Estado del Usuario").Visible = False
                     End If
                 End If
             End If
@@ -304,13 +317,14 @@ Public Class frmEmp
                         HabilitarNo()
                     Else
                         CodEmp = CInt(row.Cells(0)?.Value) ' Actualiza el código del cliente seleccionado
+                        CodEmpCreUsu = CInt(row.Cells(0)?.Value)
                         txtDNI.Text = row.Cells(1)?.Value?.ToString()
                         dnibus = row.Cells(1)?.Value?.ToString()
                         txtNom.Text = row.Cells(3)?.Value?.ToString()
                         NomEmpCreUsu = row.Cells(3)?.Value?.ToString()
                         txtApe.Text = row.Cells(2)?.Value?.ToString()
                         ApeEmpCreUsu = row.Cells(2)?.Value?.ToString()
-                        cmbPais.SelectedValue = row.Cells(10)?.Value?.ToString() ' Suponiendo que la columna 8 contiene el código del país
+                        cmbPais.SelectedValue = row.Cells(11)?.Value?.ToString() ' Suponiendo que la columna 8 contiene el código del país
                         txtMail.Text = row.Cells(7)?.Value?.ToString()
                         txtDom.Text = row.Cells(5)?.Value?.ToString()
                         frmEmpUsu.btnEmp.BackColor = Color.FromArgb(60, 113, 155)

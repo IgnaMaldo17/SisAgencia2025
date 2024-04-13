@@ -4,6 +4,7 @@ Imports Datos
 Imports Entidades
 Module modVariables
     Public NomEmp As String
+    Public CodEmpCreUsu As String
     Public NomEmpCreUsu As String
     Public ApeEmpCreUsu As String
     Public NomCli As String
@@ -14,6 +15,7 @@ Module modVariables
     Public PasUsu As String
     Public titulo As String = "Conquista tu Mundo"
     Public banbl As Boolean
+    Public UsuExiste As Boolean = False
     Public dnibus As Integer
 
 
@@ -278,7 +280,7 @@ Module modVariables
 
             If TypeOf texto Is TextBox Then
                 If texto.text = "" And texto.name.ToString <> "txtMail" And texto.name.ToString <> "txtTel" Then
-                    err.SetError(texto, "Hay uno o mas campos vacios")
+                    err.SetError(texto, $"El campo '{texto.Tag}' no puede estar vacío.")
                     banbl = False
                     Return
                 End If
@@ -289,6 +291,20 @@ Module modVariables
 
         banbl = True
 
+    End Sub
+    Public Sub CampoBlancoCliente(panel As Panel, err As ErrorProvider)
+        For Each control As Control In panel.Controls
+            If TypeOf control Is TextBox Then
+                Dim textBox As TextBox = DirectCast(control, TextBox)
+                If String.IsNullOrEmpty(textBox.Text) AndAlso textBox.Name <> "txtMail" AndAlso textBox.Name <> "txtTel" Then
+                    err.SetError(textBox, $"El campo '{textBox.Tag}' no puede estar vacío.")
+                    banbl = False
+                    Return
+                End If
+            End If
+        Next
+
+        banbl = True
     End Sub
 
     Public Sub CampoBlanco2(panel As Panel, err As ErrorProvider)
@@ -305,6 +321,48 @@ Module modVariables
 
         banbl = True
     End Sub
+
+    Public Sub TamañoVer(panel As Panel, err As ErrorProvider)
+        For Each control As Control In panel.Controls
+            If TypeOf control Is TextBox Then
+                Dim textBox As TextBox = DirectCast(control, TextBox)
+
+                If Not ContieneNumero(textBox.Text) AndAlso textBox.Name = "txtCon" Then
+                    err.SetError(textBox, $"La contraseña debe contener al menos un carácter numérico.")
+                    banbl = False
+                    Return
+
+                ElseIf Not ContieneNumero(textBox.Text) AndAlso textBox.Name = "txtUsr" Then
+                    err.SetError(textBox, $"El usuario debe contener al menos un carácter numérico.")
+                    banbl = False
+                    Return
+                End If
+
+
+            End If
+
+        Next
+
+        banbl = True
+    End Sub
+
+    Public Function ContieneLetra(texto As String) As Boolean
+        For Each caracter As Char In texto
+            If Char.IsLetter(caracter) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+    Public Function ContieneNumero(texto As String) As Boolean
+        For Each caracter As Char In texto
+            If Char.IsDigit(caracter) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Public Sub CampoBlancoRestaurar(panel As Panel, err As ErrorProvider)
         For Each control As Control In panel.Controls

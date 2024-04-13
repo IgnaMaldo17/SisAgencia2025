@@ -397,7 +397,7 @@ Public Class frmBase
 
     Private Sub btnGuaMod_Click(sender As Object, e As EventArgs) Handles btnGuaMod.Click
         ep.Clear()
-        CampoBlanco2(Me.pnlDatCli, ep)
+        CampoBlancoCliente(Me.pnlDatCli, ep)
 
         Dim Usuario As New clsCli
         Dim tabla As New DataTable
@@ -464,7 +464,7 @@ Public Class frmBase
 
 
             ElseIf banbl = False Then
-                CampoBlanco2(Me.pnlDatCli, ep)
+                CampoBlancoCliente(Me.pnlDatCli, ep)
                 ep.Clear()
             End If
 

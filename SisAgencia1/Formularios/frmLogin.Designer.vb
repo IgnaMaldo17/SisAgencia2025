@@ -45,6 +45,7 @@ Partial Class frmLogin
         ' epLogin
         ' 
         epLogin.ContainerControl = Me
+        epLogin.Icon = CType(resources.GetObject("epLogin.Icon"), Icon)
         ' 
         ' PictureBox1
         ' 

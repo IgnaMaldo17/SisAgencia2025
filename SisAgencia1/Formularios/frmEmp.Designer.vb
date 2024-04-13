@@ -27,6 +27,7 @@ Partial Class frmEmp
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEmp))
         pnlDGVEmp = New Panel()
         rbEmpAct = New RadioButton()
         rbEmpCan = New RadioButton()
@@ -482,6 +483,7 @@ Partial Class frmEmp
         ' ep
         ' 
         ep.ContainerControl = Me
+        ep.Icon = CType(resources.GetObject("ep.Icon"), Icon)
         ' 
         ' frmEmp
         ' 

@@ -11,7 +11,8 @@
     Dim _Correo As String
     Dim _Telefono As String
     Dim _Domicilio As String
-
+    Dim _NomUsu As String
+    Dim _Password As String
     Public Property CodEmp As Integer
         Get
             Return _CodEmp
@@ -117,6 +118,24 @@
         End Get
         Set(value As String)
             _Domicilio = value
+        End Set
+    End Property
+
+    Public Property NomUsu As String
+        Get
+            Return _NomUsu
+        End Get
+        Set(value As String)
+            _NomUsu = value
+        End Set
+    End Property
+
+    Public Property Password As String
+        Get
+            Return _Password
+        End Get
+        Set(value As String)
+            _Password = value
         End Set
     End Property
 End Class

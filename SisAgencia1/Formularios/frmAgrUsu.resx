@@ -117,19 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ep.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ckbMostrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ep.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        8AA=
 </value>
   </data>
 </root>

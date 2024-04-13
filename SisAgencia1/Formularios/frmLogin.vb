@@ -5,7 +5,7 @@ Imports System.Text
 Public Class frmLogin
 #Region "Botones"
 
-
+    Dim VerificarSize As String
 
     <DllImport("user32.dll", SetLastError:=True)>
     Private Shared Function ReleaseCapture() As Boolean
@@ -91,6 +91,29 @@ Public Class frmLogin
     End Sub
 #End Region
 #Region "Eventos"
+    Private Sub VerificarNombreSize()
+        VerificarSize = "Bienvenido " & ApeEmp & " " & NomEmp
+        If VerificarSize IsNot Nothing Then
+            If VerificarSize.Length <= 50 Then
+            Else
+                If VerificarSize.Length > 50 Then
+                    VerificarSize = "Bienvenido " & ApeEmp
+
+
+
+                Else
+
+
+                End If
+            End If
+        End If
+
+        MensajeError(VerificarSize)
+    End Sub
+
+
+
+
     Private Sub Login()
         Dim Usuario As New clsUsu
         Dim tabla As New DataTable
@@ -115,7 +138,7 @@ Public Class frmLogin
 
 
 
-            MensajeError("Bienvenido " & ApeEmp & " " & NomEmp)
+            VerificarNombreSize()
 
 
         Else
@@ -194,23 +217,23 @@ Public Class frmLogin
     '      End Using
     '  End Function
 
-    Private Const CS_DROPSHADOW As Integer = &H20000
+    Public Const CS_DROPSHADOW As Integer = &H20000
 
     ' Importar funciones nativas de Windows
     <DllImport("user32.dll", SetLastError:=True)>
-    Private Shared Function GetDesktopWindow() As IntPtr
+    Public Shared Function GetDesktopWindow() As IntPtr
     End Function
 
     <DllImport("user32.dll")>
-    Private Shared Function SetWindowLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
+    Public Shared Function SetWindowLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
     End Function
 
     <DllImport("user32.dll")>
-    Private Shared Function GetClassLong(hWnd As IntPtr, nIndex As Integer) As Integer
+    Public Shared Function GetClassLong(hWnd As IntPtr, nIndex As Integer) As Integer
     End Function
 
     <DllImport("user32.dll")>
-    Private Shared Function SetClassLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
+    Public Shared Function SetClassLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
     End Function
 
     Public Sub New()

@@ -27,6 +27,7 @@ Partial Class frmBase
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBase))
         pnlDGVCli = New Panel()
         Label7 = New Label()
         rbCliAct = New RadioButton()
@@ -477,6 +478,7 @@ Partial Class frmBase
         ' ep
         ' 
         ep.ContainerControl = Me
+        ep.Icon = CType(resources.GetObject("ep.Icon"), Icon)
         ' 
         ' frmBase
         ' 

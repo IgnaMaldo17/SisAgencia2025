@@ -22,6 +22,7 @@ Partial Class frmAgrUsu
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgrUsu))
         pnlMnuTool = New Panel()
         tsslNomUsu = New Label()
@@ -36,8 +37,14 @@ Partial Class frmAgrUsu
         label11 = New Label()
         Label1 = New Label()
         ckbMostrar = New CheckBox()
-        btnAgrMod = New Button()
+        btnAgrUsu = New Button()
+        PictureBox1 = New PictureBox()
+        pnlCreUsu = New Panel()
+        ep = New ErrorProvider(components)
         pnlMnuTool.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        pnlCreUsu.SuspendLayout()
+        CType(ep, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlMnuTool
@@ -50,7 +57,7 @@ Partial Class frmAgrUsu
         pnlMnuTool.Location = New Point(0, 0)
         pnlMnuTool.Name = "pnlMnuTool"
         pnlMnuTool.Size = New Size(318, 34)
-        pnlMnuTool.TabIndex = 45
+        pnlMnuTool.TabIndex = 7
         ' 
         ' tsslNomUsu
         ' 
@@ -73,7 +80,7 @@ Partial Class frmAgrUsu
         btnMini.Location = New Point(244, 0)
         btnMini.Name = "btnMini"
         btnMini.Size = New Size(37, 34)
-        btnMini.TabIndex = 3
+        btnMini.TabIndex = 8
         btnMini.UseVisualStyleBackColor = False
         ' 
         ' btnExit
@@ -109,45 +116,45 @@ Partial Class frmAgrUsu
         txtUsr.Anchor = AnchorStyles.None
         txtUsr.BackColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
         txtUsr.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtUsr.Location = New Point(32, 116)
+        txtUsr.Location = New Point(30, 235)
         txtUsr.MaxLength = 50
         txtUsr.Name = "txtUsr"
         txtUsr.Size = New Size(257, 22)
-        txtUsr.TabIndex = 1
-        txtUsr.Tag = "DNI"
+        txtUsr.TabIndex = 2
+        txtUsr.Tag = "Usuario"
         ' 
         ' txtCon
         ' 
         txtCon.Anchor = AnchorStyles.None
         txtCon.BackColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
         txtCon.Font = New Font("Microsoft Sans Serif", 9.75F)
-        txtCon.Location = New Point(32, 160)
+        txtCon.Location = New Point(30, 279)
         txtCon.MaxLength = 50
         txtCon.Name = "txtCon"
         txtCon.PasswordChar = "*"c
         txtCon.Size = New Size(257, 22)
-        txtCon.TabIndex = 2
-        txtCon.Tag = "Nombre(s)"
+        txtCon.TabIndex = 3
+        txtCon.Tag = "Contraseña"
         ' 
         ' txtReCon
         ' 
         txtReCon.Anchor = AnchorStyles.None
         txtReCon.BackColor = Color.FromArgb(CByte(249), CByte(252), CByte(255))
         txtReCon.Font = New Font("Microsoft Sans Serif", 9.75F)
-        txtReCon.Location = New Point(32, 204)
+        txtReCon.Location = New Point(30, 323)
         txtReCon.MaxLength = 50
         txtReCon.Name = "txtReCon"
         txtReCon.PasswordChar = "*"c
         txtReCon.Size = New Size(257, 22)
         txtReCon.TabIndex = 4
-        txtReCon.Tag = "Apellido(s)"
+        txtReCon.Tag = "Repetir contraseña"
         ' 
         ' Label3
         ' 
         Label3.Anchor = AnchorStyles.None
         Label3.AutoSize = True
         Label3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(32, 97)
+        Label3.Location = New Point(30, 216)
         Label3.Name = "Label3"
         Label3.Size = New Size(54, 16)
         Label3.TabIndex = 50
@@ -158,7 +165,7 @@ Partial Class frmAgrUsu
         Label4.Anchor = AnchorStyles.None
         Label4.AutoSize = True
         Label4.Font = New Font("Microsoft Sans Serif", 9.75F)
-        Label4.Location = New Point(32, 141)
+        Label4.Location = New Point(30, 260)
         Label4.Name = "Label4"
         Label4.Size = New Size(76, 16)
         Label4.TabIndex = 51
@@ -169,7 +176,7 @@ Partial Class frmAgrUsu
         label11.Anchor = AnchorStyles.None
         label11.AutoSize = True
         label11.Font = New Font("Microsoft Sans Serif", 9.75F)
-        label11.Location = New Point(32, 185)
+        label11.Location = New Point(30, 304)
         label11.Name = "label11"
         label11.Size = New Size(121, 16)
         label11.TabIndex = 52
@@ -182,10 +189,10 @@ Partial Class frmAgrUsu
         Label1.ForeColor = Color.SteelBlue
         Label1.Image = My.Resources.Resources.icons8_empleado_18
         Label1.ImageAlign = ContentAlignment.MiddleLeft
-        Label1.Location = New Point(20, 56)
+        Label1.Location = New Point(12, 21)
         Label1.Name = "Label1"
         Label1.Size = New Size(286, 13)
-        Label1.TabIndex = 5
+        Label1.TabIndex = 100
         Label1.Text = "       0123456789012012345678901234567890123456789"
         ' 
         ' ckbMostrar
@@ -193,59 +200,88 @@ Partial Class frmAgrUsu
         ckbMostrar.Appearance = Appearance.Button
         ckbMostrar.AutoSize = True
         ckbMostrar.FlatAppearance.BorderSize = 0
+        ckbMostrar.FlatAppearance.MouseOverBackColor = Color.Azure
         ckbMostrar.FlatStyle = FlatStyle.Flat
         ckbMostrar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ckbMostrar.ForeColor = Color.SteelBlue
-        ckbMostrar.Image = CType(resources.GetObject("ckbMostrar.Image"), Image)
+        ckbMostrar.Image = My.Resources.Resources.icons8_invisible_24
         ckbMostrar.ImageAlign = ContentAlignment.MiddleLeft
-        ckbMostrar.Location = New Point(32, 239)
+        ckbMostrar.Location = New Point(30, 351)
         ckbMostrar.Name = "ckbMostrar"
         ckbMostrar.Size = New Size(35, 30)
         ckbMostrar.TabIndex = 5
         ckbMostrar.Text = "    "
         ckbMostrar.UseVisualStyleBackColor = True
         ' 
-        ' btnAgrMod
+        ' btnAgrUsu
         ' 
-        btnAgrMod.BackColor = Color.SteelBlue
-        btnAgrMod.FlatAppearance.BorderColor = Color.SlateGray
-        btnAgrMod.FlatAppearance.MouseDownBackColor = Color.SteelBlue
-        btnAgrMod.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
-        btnAgrMod.FlatStyle = FlatStyle.Flat
-        btnAgrMod.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnAgrMod.ForeColor = Color.White
-        btnAgrMod.Image = My.Resources.Resources.icons8_más_24
-        btnAgrMod.ImageAlign = ContentAlignment.MiddleLeft
-        btnAgrMod.Location = New Point(32, 275)
-        btnAgrMod.Name = "btnAgrMod"
-        btnAgrMod.Size = New Size(257, 54)
-        btnAgrMod.TabIndex = 6
-        btnAgrMod.Text = "Agregar"
-        btnAgrMod.UseVisualStyleBackColor = False
+        btnAgrUsu.BackColor = Color.Green
+        btnAgrUsu.FlatAppearance.BorderColor = Color.SlateGray
+        btnAgrUsu.FlatAppearance.MouseDownBackColor = Color.SteelBlue
+        btnAgrUsu.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(60), CByte(113), CByte(155))
+        btnAgrUsu.FlatStyle = FlatStyle.Flat
+        btnAgrUsu.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnAgrUsu.ForeColor = Color.White
+        btnAgrUsu.Image = My.Resources.Resources.icons8_más_24
+        btnAgrUsu.ImageAlign = ContentAlignment.MiddleLeft
+        btnAgrUsu.Location = New Point(30, 387)
+        btnAgrUsu.Name = "btnAgrUsu"
+        btnAgrUsu.Size = New Size(257, 54)
+        btnAgrUsu.TabIndex = 6
+        btnAgrUsu.Text = "Agregar"
+        btnAgrUsu.UseVisualStyleBackColor = False
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.icons8_usuario_100
+        PictureBox1.Location = New Point(84, 52)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(144, 134)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 53
+        PictureBox1.TabStop = False
+        ' 
+        ' pnlCreUsu
+        ' 
+        pnlCreUsu.BackColor = Color.Azure
+        pnlCreUsu.Controls.Add(txtUsr)
+        pnlCreUsu.Controls.Add(Label1)
+        pnlCreUsu.Controls.Add(PictureBox1)
+        pnlCreUsu.Controls.Add(btnAgrUsu)
+        pnlCreUsu.Controls.Add(txtCon)
+        pnlCreUsu.Controls.Add(txtReCon)
+        pnlCreUsu.Controls.Add(Label3)
+        pnlCreUsu.Controls.Add(Label4)
+        pnlCreUsu.Controls.Add(label11)
+        pnlCreUsu.Controls.Add(ckbMostrar)
+        pnlCreUsu.Location = New Point(3, 34)
+        pnlCreUsu.Name = "pnlCreUsu"
+        pnlCreUsu.Size = New Size(312, 469)
+        pnlCreUsu.TabIndex = 1
+        ' 
+        ' ep
+        ' 
+        ep.ContainerControl = Me
+        ep.Icon = CType(resources.GetObject("ep.Icon"), Icon)
         ' 
         ' frmAgrUsu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.Azure
-        ClientSize = New Size(318, 373)
-        Controls.Add(btnAgrMod)
-        Controls.Add(ckbMostrar)
-        Controls.Add(Label1)
-        Controls.Add(txtUsr)
-        Controls.Add(txtCon)
-        Controls.Add(txtReCon)
-        Controls.Add(Label3)
-        Controls.Add(Label4)
-        Controls.Add(label11)
+        BackColor = Color.SteelBlue
+        ClientSize = New Size(318, 506)
+        Controls.Add(pnlCreUsu)
         Controls.Add(pnlMnuTool)
         FormBorderStyle = FormBorderStyle.None
         Name = "frmAgrUsu"
         Text = "frmAgrUsu"
         pnlMnuTool.ResumeLayout(False)
         pnlMnuTool.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        pnlCreUsu.ResumeLayout(False)
+        pnlCreUsu.PerformLayout()
+        CType(ep, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents pnlMnuTool As Panel
@@ -261,5 +297,8 @@ Partial Class frmAgrUsu
     Friend WithEvents label11 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents ckbMostrar As CheckBox
-    Friend WithEvents btnAgrMod As Button
+    Friend WithEvents btnAgrUsu As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pnlCreUsu As Panel
+    Friend WithEvents ep As ErrorProvider
 End Class

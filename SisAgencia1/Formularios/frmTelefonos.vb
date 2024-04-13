@@ -87,7 +87,7 @@ Public Class frmTelefonos
     Private Sub btnAgrMod_Click(sender As Object, e As EventArgs) Handles btnAgrMod.Click
 
         ep.Clear()
-        CampoBlanco(Me.gbDatoTel, ep)
+        CampoBlanco(gbDatoTel, ep)
 
         Dim Usuario As New clsCli
         Dim tabla As New DataTable
@@ -133,8 +133,8 @@ Public Class frmTelefonos
 
 
         ElseIf banbl = False Then
-            MensajeError("Debe ingresar un teléfono.")
-            ep.Clear()
+            CampoBlanco(gbDatoTel, ep)
+
         End If
 
 
@@ -154,7 +154,7 @@ Public Class frmTelefonos
     Private Sub btnEliRes_Click(sender As Object, e As EventArgs) Handles btnEliRes.Click
         If BanderaRes = True Then
             'restaurar
-            CampoBlanco(Me.gbDatoTel, ep)
+            CampoBlanco(gbDatoTel, ep)
             If banbl = True Then
                 If TelefonosSP.AltaTelefono(CodNum) Then
                     frmBase.Determinar()
@@ -163,12 +163,12 @@ Public Class frmTelefonos
                     MensajeError("Hubo un error al intentar recuperar el número.")
                 End If
             ElseIf banbl = False Then
-                CampoBlanco(Me.gbDatoTel, ep)
+                CampoBlanco(gbDatoTel, ep)
 
             End If
         Else
             'eliminar
-            Dim resultado As DialogResult = MessageBox.Show("Esta por dar de baja un número de cliente ¿Desea continuar?", "Eliminar número.", MessageBoxButtons.YesNoCancel)
+            Dim resultado = MessageBox.Show("Esta por dar de baja un número de cliente ¿Desea continuar?", "Eliminar número.", MessageBoxButtons.YesNoCancel)
             If resultado = DialogResult.Yes Then
                 If TelefonosSP.BajaTelefono(CodNum, CodUsu) Then
                     frmBase.Determinar()
@@ -531,7 +531,56 @@ Public Class frmTelefonos
     '        clickedOutsideOnce = False ' Restablecer el estado si se mueve el ratón dentro del formulario
     '    End If
     'End Sub
+    Private Sub VerificarNombreSize()
+        If gbDatoTel.Text IsNot Nothing Then
+            If gbDatoTel.Text.Length <= 33 Then
+            Else
+                If gbDatoTel.Text.Length > 33 AndAlso gbDatoTel.Text.Length <= 39 Then
+                    gbDatoTel.Font = New Font("Microsoft Sans Serif", 10)
 
+
+
+                ElseIf gbDatoTel.Text.Length > 39 Then
+
+
+
+
+                    gbDatoTel.Font = New Font("Microsoft Sans Serif", 12)
+                    gbDatoTel.Text = "Cliente: " + ApeCli
+
+                    If gbDatoTel.Text.Length <= 33 Then
+                    Else
+                        If gbDatoTel.Text.Length > 33 AndAlso gbDatoTel.Text.Length <= 39 Then
+                            gbDatoTel.Font = New Font("Microsoft Sans Serif", 10)
+
+                        ElseIf gbDatoTel.Text.Length > 39 Then
+                            gbDatoTel.Font = New Font("Microsoft Sans Serif", 12)
+
+                            gbDatoTel.Text = ApeCli
+
+                            If gbDatoTel.Text.Length <= 33 Then
+                                gbDatoTel.Font = New Font("Microsoft Sans Serif", 11)
+                            Else
+                                If gbDatoTel.Text.Length > 33 AndAlso gbDatoTel.Text.Length <= 39 Then
+                                    gbDatoTel.Font = New Font("Microsoft Sans Serif", 9)
+
+                                ElseIf gbDatoTel.Text.Length > 39 AndAlso gbDatoTel.Text.Length <= 47 Then
+                                    gbDatoTel.Font = New Font("Microsoft Sans Serif", 8)
+
+                                Else
+                                    gbDatoTel.Text = "Ingrese el teléfono:"
+
+                                End If
+                            End If
+
+                        End If
+                    End If
+
+                End If
+
+            End If
+        End If
+    End Sub
     Dim iteraciones As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Interval = 200 ' Establece el intervalo del temporizador (en milisegundos)
@@ -540,6 +589,7 @@ Public Class frmTelefonos
         dgvTelefonos.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 10)
         Inicio()
         gbDatoTel.Text = "Cliente: " + ApeCli + " " + NomCli
+        VerificarNombreSize()
         CentrarForm(Me)
         GetTel()
         MaximumSize = Screen.FromControl(Me).WorkingArea.Size
@@ -562,6 +612,8 @@ Public Class frmTelefonos
         btnMini.BackColor = Color.SteelBlue
         btnExit.BackColor = Color.SteelBlue
     End Sub
+
+
 
     'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
     '    If pnlMnuTool.BackColor = Color.SteelBlue Then

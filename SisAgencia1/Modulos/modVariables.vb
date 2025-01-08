@@ -30,7 +30,6 @@ Module modVariables
 
     Public Sub ClearLabel(labell As Label)
         labell.Text = ""
-
     End Sub
 
 

@@ -1,131 +1,95 @@
-Sistema Conquista tu Mundo - Ignacio Leonel Maldonado 2024.
+# Sistema "Conquista tu Mundo" - Ignacio Leonel Maldonado 2024
 
-Links: 
+## Enlaces de Interés
 
-www.linkedin.com/in/ignacio-leonel-maldonado-251b7b344
-https://github.com/IgnaMaldo17
+- [Perfil de LinkedIn](https://www.linkedin.com/in/ignacio-leonel-maldonado-251b7b344)
+- [Repositorio en GitHub](https://github.com/IgnaMaldo17)
 
+## Instrucciones Importantes
 
+Por favor, lea este documento detenidamente antes de comenzar la instalación del sistema "Conquista tu Mundo" o de cualquiera de sus requisitos.
 
-***** Lea este documento de texto antes de comenzar con la instalación del sistema "Conquista tu Mundo" o de cualquiera de sus requisitos.
+---
 
+## Requisitos del Sistema
 
+- **Sistema Operativo:** Windows 10 o posterior.
+- **Base de Datos:** Microsoft SQL Server 2022 o posterior. (Se recomienda seguir las instrucciones detalladas en este documento).
+- **SDK:** Microsoft .NET SDK 8.0.100 o posterior.
 
-*Requisitos:
+---
 
-Windows 10 o posterior.
-Microsoft SQL Server 2022 o posterior (Se recomienda instalarla siguiendo los pasos en este texto).
-Microsoft .NET SDK 8.0.100 o posterior.
+## Instrucciones de Instalación
 
+1. **Ejecutar el instalador como administrador:**
+   Si SmartScreen de Microsoft Defender bloquea la instalación, desactívelo temporalmente:
+   - Abra "Seguridad de Windows".
+   - Vaya a "Control de aplicaciones y explorador".
+   - Seleccione "Configuración de protección basada en reputación" y desactive "Comprobar aplicaciones y archivos".
 
+2. **Instalación de SQL Server:**
+   Si no tiene SQL Server instalado, aparecerá una ventana para iniciar su instalación. Siga estos pasos:
 
-*Instrucciones de instalación:
+   a. Seleccione la opción "Personalizado" y cambie el idioma a inglés si se le recomienda.
 
-1) Al ejecutar el instalador como administrador, es posible que SmartScreen de MS Defender no deje continuar. En ese caso, desactivelo momentaneamente para proseguir con la instalación.
+   b. Seleccione la ubicación de instalación.
 
-Para desactivar SmartScreen debe abrir "Seguridad de Windows", luego "Control de aplicaciones y explorador", posteriormente
-haga click en "Configuración de Protección basada en reputación" y entonces desactive "Comprobar aplicaciones y archivos".
+   c. Acepte los términos y condiciones en el "SQL Server Installation Center" y haga clic en "Next". Si aparece un mensaje indicando que la base de datos "SisAgencia" no existe, no cierre la ventana y prosiga con los pasos siguientes.
 
-2) En caso de no tener SQL Server instalado, aparecerá una ventana para comenzar una instalación.
+   d. Desactive "Windows Firewall" antes de continuar y, una vez que la barra de carga se complete, presione "Next".
 
-	Instrucciones de instalación de SQL (Importante):
-	
-	* Debido a que la aplicación está configurada en base a una llamada "SISAGENCIA" debe ponerse dicho nombre
-	al instalar.
-	
-	a) Seleccione el botón "Personalizado" para comenzar la instalación.
-	Es posible que le recomiende cambiar la instalación al idioma inglés, hágalo.
-	
-	b) Seleccione la ubicación de instalación para SQL Server.
+   e. Desmarque la opción "Azure Extension for SQL", ya que no es necesaria.
 
-	c) Se abrirá el panel "SQL Server Installation Center", marque la casilla de términos y condiciones y presione "Next".
-	Es posible que salga una ventana diciendo que la base de datos "SisAgencia" no existe y que se creará una.
-	No cierre el mensaje ni presione aceptar, prosiga con los siguientes pasos.
-	
-	d) Se recomienda desactivar "Windows Firewall" antes de proseguir. Una vez se complete la barra de carga,
-	presione "Next".
+   f. En la sección "Features", no modifique las configuraciones predeterminadas y haga clic en "Next".
 
-	e) Se recomienda desmarcar la casilla "Azure Extension for SQL" ya que no será necesaria para ejecutar el programa.
-	Luego, presione "Next" nuevamente.
-	
-	f) No se recomienda marcar o desmarcar casillas en "Features". Presione "Next".
+   g. Seleccione "Named instance" y escriba "SISAGENCIA" en el cuadro de texto. Si "Instance ID" no se actualiza automáticamente, escríbalo manualmente. Este paso es obligatorio.
 
-	*g) Marque el botón "Named instance" y en el cuadro de texto escriba: "SISAGENCIA", en caso de que el cuadro de texto de "Instance ID" no se actualice automaticamente a "SISAGENCIA", hágalo manualmente.
-	Este paso es obligatorio para que el programa funcione correctamente. Al finalizar, presione "Next".
+   h. Mantenga las configuraciones predeterminadas en "Server Configuration" y haga clic en "Next".
 
-	h) Se recomienda presionar "Next" nuevamente sin modificar nada en la sección "Server Configuration".
+   i. En "Authentication Mode", seleccione "Windows authentication mode" y haga clic en "Next". Una vez completada la instalación, cierre el "SQL Server Installation Center".
 
-	i) En "Authentication Mode" mantenga marcado "Windows authentication mode". Prosiga al botón "Next".
-	En este momento comenzará la instalación de SQL, la barra indica el progreso. Al terminar la carga, presione "Close" para finalizar la instalación.
-	Puede cerrar la ventana de "SQL Server Installation Center". Ahora prosiga con la instalación del sistema.
+3. **Creación de la Base de Datos:**
+   Aparecerá una ventana indicando que la base de datos "SisAgencia" no existe. Haga clic en "Aceptar" para proceder con su creación.
 
+4. **Continuar con la Instalación del Sistema:**
+   - Seleccione la carpeta de destino y haga clic en "Siguiente".
+   - Active la opción "Crear un acceso directo en el escritorio" y haga clic en "Siguiente".
+   - Finalmente, haga clic en "Instalar". Si aparece un mensaje indicando que la base de datos "SisAgencia" ya existe, seleccione "Sí" para restaurarla.
 
-* Se recomienda encarecidamente seguir el paso 3) de "Posibles errores en la instalación y ejecución temprana del programa" por completo en este momento, para evitar errores futuros.
+5. **Ejecutar el Programa:**
+   - Si encuentra errores de permisos, cierre el programa y ejecúte como administrador.
+   - Si aparece una ventana solicitando la instalación de Microsoft .NET, siga el enlace proporcionado para completar la instalación.
 
-3) Aparecerá una ventana diciendo que la base de datos "SisAgencia" no existe. Presione aceptar para que proceda a su creación.
+6. **Usuarios de Acceso Inicial:**
 
-4) Seleccione la carpeta de destino de la aplicación y presione siguiente. 
+   - **Administrador:**
+     - Usuario: `iguazu2024`
+     - Contraseña: `123`
 
-5) Se recomienda tildar la casilla "Crear un acceso directo en el escritorio". Luego, presione siguiente.
+   - **Empleado:**
+     - Usuario: `iguazu2023`
+     - Contraseña: `123`
 
-6) Finalmente, presione "Instalar". Al finalizar la barra de carga, aparecerá un mensaje diciendo que la base de datos "SisAgencia" ya existe y si desea restaurarla. Presione Sí.
+---
 
-7) Ya puede ejecutar el programa normalmente.
-Si al ejecutar el programa sale un error de permisos, cierrelo y ejecutelo como administrador.
-Si al ejecutar el programa sale una ventana que avise que se debe instalar Microsoft .NET, continúe a la página oficial para proceder con su instalación.
+## Solución de Problemas Comunes
 
-8) Para comenzar a usar el programa, le proporcionaré un usuario "Administrador" y un usuario "Empleado".
+1. **Problemas con la Creación o Restauración de la Base de Datos:**
+   - Reinicie el servicio "SISAGENCIA" desde el programa "Servicios" (tecla `Win + R`, escriba `services.msc`).
+   - Busque "SQL Server (SISAGENCIA)", haga clic en "Reiniciar el servicio" y espere a que se complete.
 
-	Administrador:
-		
-		Usuario: iguazu2024
-		Contraseña: 123
-		
-	Empleado:
+2. **Errores de Permisos:**
+   - Configure el acceso directo del programa para que siempre se ejecute como administrador:
+     - Haga clic derecho en el acceso directo y seleccione "Propiedades".
+     - En "Opciones avanzadas", marque "Ejecutar como administrador" y guarde los cambios.
 
-		Usuario: iguazu2023
-		Contraseña: 123
+3. **Error "Could not find stored procedure":**
+   - Configure el servicio de SQL para iniciar sesión como "Cuenta del sistema local" y permita que interactúe con el escritorio.
+   - Reinicie el servicio "SISAGENCIA" después de realizar estos cambios.
 
+4. **Errores Persistentes:**
+   - Ejecute nuevamente el instalador y siga los pasos indicados, restaurando la base de datos al finalizar.
+   - Asegúrese de ejecutar el programa como administrador.
 
-*Posibles errores en la instalación y ejecución temprana del programa:
+---
 
-1) En caso de tener problemas con la creación y/o restauración de la base de datos, debe reinciar el servicio de "SISAGENCIA".
-	
-	Instrucciones para reiniciar el servicio:
-
-	a) Abra el programa "Servicios", también puede apretar las teclas Win + R, lo que abre "Ejecutar" y en el cuadro de texto escriba "services.msc".
-	
-	b) Ahora busque el servicio llamado "SQL Server (SISAGENCIA)". Para encontrarlo más rápido puede hacer un click a cualquier servicio y escribir rápidamente "SQL", entonces puede empezar buscando por los servicios que comiencen con "SQL".
-
-	c) Al encontrarlo, presione dicho servicio y en el lado izquierdo de la ventana, aparecerán tres opciones: Detener el servicio, Pausar el servicio, Reiniciar el servicio.
-
-	d) Presione "Reiniciar el servicio" y espere que la barra de carga se complete. 
-	En caso de que aparezca un cuadro llamado "Reiniciar otros servicios", presione Sí.
-
-2) Es posible que haya errores de permisos en caso de ejecutar tanto el programa como el instalador sin ser administrador.
-	
-	a) Para hacer más rápido el inicio de la aplicación, solo presione botón derecho en el acceso directo y en el cuadro que aparece, presione "Propiedades".
-	
-	b) Se abrirá la ventana de propiedades, estará seleccionada la solapa "Acceso directo", en la parte inferior de la ventana habrá un botón que dice "Opciones avanzadas...", presionelo.
-	
-	c) Aparecerá un cuadro que tiene una casilla que dice "Ejecutar como administrador", marque dicha casilla, presione "Aceptar" y en la ventana de propiedades presione "Aplicar".
-	Si sale un recuadro diciendo que se debe proporcionar permisos, presione "Continuar" y luego "Aceptar".
-
-3) Si sale el error "Could not find stored procedure", debe cambiar la configuración del servicio de SQL.
-	
-	Instrucciones para configurar el servicio de SQL:
-
-	a) Abra el programa "Servicios", también puede apretar las teclas Win + R, lo que abre "Ejecutar" y en el cuadro de texto escriba "services.msc".
-	
-	b) Ahora busque el servicio llamado "SQL Server (SISAGENCIA)". Para encontrarlo más rápido puede hacer un click a cualquier servicio y escribir rápidamente "SQL", entonces puede empezar buscando por los servicios que comiencen con "SQL".
-
-	c) Al encontrarlo, presione con el botón derecho del mouse dicho servicio. Aparecerá un recuadro con diversas opciones, haga click en la que dice "Propiedades".
-
-	d) Se abrirá una ventana de propiedades, en la parte superior habrá 4 solapas, presione la que dice "Iniciar Sesión".
-
-	e) El cuadro dirá "Iniciar sesión como:", debajo hay dos botones, seleccione el que dice "Cuenta del sistema local" y luego marque la casilla "Permitir que el servicio interactúe con el escritorio".
-
-	f) Finalmente presione "Aplicar" y reincie el servicio. Si no sabe como reiniciarlo, se explica en el punto 1) de la lista de posibles errores.
-	
-4) En caso de que haya ocurrido uno de los anteriores errores, es posible que en la instalación no se haya restaurado correctamente la base de datos. En ese caso, una vez hecho los pasos anteriores, vuelva a ejecutar el instalador y proceda normalmente. Al aparecer el mensaje de restaurar la base, hágalo.
-Es posible que al finalizar la instalación vuelva a saltar un error en cuanto a permisos, solo ejecute como administrador el acceso directo del programa "Sistema Conquista tu Mundo" como administrador y todos los errores deberían estar solucionados.
